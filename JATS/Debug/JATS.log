@@ -1,0 +1,10 @@
+﻿  JATS.cpp
+C:\Users\user\Desktop\JATS\JATS\JATS.cpp(10,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\JATS\JATS\JATS.cpp(22,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\JATS\JATS\JATS.cpp(25,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\JATS\JATS\JATS.cpp(83,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\JATS\JATS\JATS.cpp(115,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\JATS\JATS\JATS.cpp(130,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\JATS\JATS\JATS.cpp(140,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\user\Desktop\JATS\JATS\JATS.cpp(143,20): warning C4018: <: несоответствие типов со знаком и без знака
+  JATS.vcxproj -> C:\Users\user\Desktop\JATS\Debug\JATS.exe
