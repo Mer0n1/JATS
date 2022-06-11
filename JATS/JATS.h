@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <list>
 #include <vector>
@@ -14,12 +14,12 @@ public:
 	interpretation(string key_);
 	~interpretation();
 
-	void toIntMassv(int* massv, int length); //massv - первый элемент массива
+	void toIntMassv(int* massv, int length); //massv - РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°
 	void toFloatMassv(float* massv, int length);
 
-	string toString(); //вернем тип string
-	int toInt(); //вернем тип int
-	float toFloat(); //вернем тип float
+	string toString(); //РІРµСЂРЅРµРј С‚РёРї string
+	int toInt(); //РІРµСЂРЅРµРј С‚РёРї int
+	float toFloat(); //РІРµСЂРЅРµРј С‚РёРї float
 };
 
 class JsonDocument
@@ -32,6 +32,6 @@ public:
 
 	interpretation value(string key);
 private:
-	bool sort(string key, string msg, int alk, int j); //сортировка 
+	bool sort(string key, string msg, int alk, int j); //СЃРѕСЂС‚РёСЂРѕРІРєР° 
 
 };

@@ -1,28 +1,28 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "JATS.h"
 
 //Java and translate string
 
 int main(int argc, char* argv[])
 {
-	//Класс сделан на подобие json Qt
+	//РљР»Р°СЃСЃ СЃРґРµР»Р°РЅ РЅР° РїРѕРґРѕР±РёРµ json Qt
 	setlocale(LC_ALL, "Russian");
 
-	JsonDocument doc; //класс для перевода json запросов в string
-	interpretation inter; //класс для перевода из string в массивы разных типов
+	JsonDocument doc; //РєР»Р°СЃСЃ РґР»СЏ РїРµСЂРµРІРѕРґР° json Р·Р°РїСЂРѕСЃРѕРІ РІ string
+	interpretation inter; //РєР»Р°СЃСЃ РґР»СЏ РїРµСЂРµРІРѕРґР° РёР· string РІ РјР°СЃСЃРёРІС‹ СЂР°Р·РЅС‹С… С‚РёРїРѕРІ
 
-	//Пример запроса Json
+	//РџСЂРёРјРµСЂ Р·Р°РїСЂРѕСЃР° Json
 	string result = "{\"Type\":\"White\",\"Value\":\"32\",\"Code16x\":\"23 545 123.45 34 11 34.4 157663\"}";
-	cout << "Пример запроса: \n" << result << "\n\n";
+	cout << "РџСЂРёРјРµСЂ Р·Р°РїСЂРѕСЃР°: \n" << result << "\n\n";
 
-	doc = result; //обязательная инициализация
-	//Вывод результатов
+	doc = result; //РѕР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ
+	//Р’С‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ
 	cout << "Type: "    << doc.value("Type").toString() << endl; 
 	cout << "Code16x: " << doc.value("Code16x").toString() << endl;
 	cout << "Value: "   << doc.value("Value").toInt() << endl;
 
 
-	//Перевод в массив
+	//РџРµСЂРµРІРѕРґ РІ РјР°СЃСЃРёРІ
 	int IntMassv[30];
 	float FlMassv[30];
 
@@ -32,15 +32,15 @@ int main(int argc, char* argv[])
 	doc.value("Code16x").toIntMassv(&IntMassv[0], sizeof(IntMassv));
 	doc.value("Code16x").toFloatMassv(&FlMassv[0], sizeof(IntMassv));
 
-	cout << "\nВыводим int массив:\n";
+	cout << "\nР’С‹РІРѕРґРёРј int РјР°СЃСЃРёРІ:\n";
 	for (int j = 0; j < 30; j++)
 		cout << IntMassv[j] << " "; cout << "\n\n";
 
-	cout << "Выводим float массив:\n";
+	cout << "Р’С‹РІРѕРґРёРј float РјР°СЃСЃРёРІ:\n";
 	for (int j = 0; j < 30; j++)
 		cout << FlMassv[j] << " "; cout << "\n\n"; 
 
-	//c inter можно взаимодействовать без JsonDocument
+	//c inter РјРѕР¶РЅРѕ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРѕРІР°С‚СЊ Р±РµР· JsonDocument
 	inter = { "23 545 123.45 34 11 34.4 1576653" };
 	inter.toFloatMassv(&FlMassv[0], 30); //...
 

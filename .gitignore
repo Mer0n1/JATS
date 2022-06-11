@@ -1,0 +1,11 @@
+Debug
+JATS/Debug
+JATS/Release
+JATS.vcxproj
+JATS.vcxproj.user
+JATS.vcxproj.filters
+*.obj
+*.pdb
+*.log
+*.idb
+*.tlog

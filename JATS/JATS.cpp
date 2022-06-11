@@ -1,4 +1,4 @@
-#include "JATS.h"
+п»ї#include "JATS.h"
 
 JsonDocument::JsonDocument()
 {
@@ -10,7 +10,7 @@ JsonDocument::JsonDocument(string d)
 	for (int j = 0; j < d.length(); j++) {
 		string d_; d_ = d[j];
 		msg.append(d_.c_str());
-		if (msg[j] == '}') break; //доходим до конца ключ-запроса 
+		if (msg[j] == '}') break; //РґРѕС…РѕРґРёРј РґРѕ РєРѕРЅС†Р° РєР»СЋС‡-Р·Р°РїСЂРѕСЃР° 
 	}
 }
 
@@ -38,9 +38,9 @@ interpretation JsonDocument::value(string key)
 
 bool JsonDocument::sort(string key, string msg, int alk, int j)
 { 
-	if (key.length() == 2) return true; //если аргумент равен 2, то пропускаем
-	if (key.length() > 2 && msg[j - 2] == key[alk - 3]) return true; //если нет, то сортируем еще
-	return false;                                                        //для тщательного поиска
+	if (key.length() == 2) return true; //РµСЃР»Рё Р°СЂРіСѓРјРµРЅС‚ СЂР°РІРµРЅ 2, С‚Рѕ РїСЂРѕРїСѓСЃРєР°РµРј
+	if (key.length() > 2 && msg[j - 2] == key[alk - 3]) return true; //РµСЃР»Рё РЅРµС‚, С‚Рѕ СЃРѕСЂС‚РёСЂСѓРµРј РµС‰Рµ
+	return false;                                                        //РґР»СЏ С‚С‰Р°С‚РµР»СЊРЅРѕРіРѕ РїРѕРёСЃРєР°
 }
 
 
@@ -62,11 +62,11 @@ void interpretation::toIntMassv(int* massv, int length_)
 {
 	if (key == "") return;
 	if (key[key.length() - 1] != ' ')
-		key += ' '; //добавляем пробел на всякий
+		key += ' '; //РґРѕР±Р°РІР»СЏРµРј РїСЂРѕР±РµР» РЅР° РІСЃСЏРєРёР№
 
-	string data; //временный результат
-	vector<int> vec(1); //изначально переводим в вектор (обяз.инициализация)
-	int length = key.length() + 1; //узнаем размер
+	string data; //РІСЂРµРјРµРЅРЅС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚
+	vector<int> vec(1); //РёР·РЅР°С‡Р°Р»СЊРЅРѕ РїРµСЂРµРІРѕРґРёРј РІ РІРµРєС‚РѕСЂ (РѕР±СЏР·.РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ)
+	int length = key.length() + 1; //СѓР·РЅР°РµРј СЂР°Р·РјРµСЂ
 
 	for (int j = 0, n = 0; j < length; j++)
 	{
@@ -74,14 +74,14 @@ void interpretation::toIntMassv(int* massv, int length_)
 			data += key[j];
 			continue;
 		}
-		vec[n] = atoi(data.c_str()); //переводим число в int
+		vec[n] = atoi(data.c_str()); //РїРµСЂРµРІРѕРґРёРј С‡РёСЃР»Рѕ РІ int
 		data.clear();
-		n++; //кол во чисел (или номер текущего числа)
-		vec.push_back(0); //новое число
+		n++; //РєРѕР» РІРѕ С‡РёСЃРµР» (РёР»Рё РЅРѕРјРµСЂ С‚РµРєСѓС‰РµРіРѕ С‡РёСЃР»Р°)
+		vec.push_back(0); //РЅРѕРІРѕРµ С‡РёСЃР»Рѕ
 	}
 
-	//переведем в массив
-	for (int j = 0; j < vec.size() && j < length_ / sizeof(int); j++) { //length учитывает макс.кол во индексов массива
+	//РїРµСЂРµРІРµРґРµРј РІ РјР°СЃСЃРёРІ
+	for (int j = 0; j < vec.size() && j < length_ / sizeof(int); j++) { //length СѓС‡РёС‚С‹РІР°РµС‚ РјР°РєСЃ.РєРѕР» РІРѕ РёРЅРґРµРєСЃРѕРІ РјР°СЃСЃРёРІР°
 		*massv = vec[j]; 
 		massv++;
 	}
@@ -91,13 +91,13 @@ void interpretation::toFloatMassv(float* massv, int length_)
 {
 	if (key == "") return;
 	if (key[key.length() - 1] != ' ')
-		key += " "; //добавляем пробел
+		key += " "; //РґРѕР±Р°РІР»СЏРµРј РїСЂРѕР±РµР»
 
-	string data; //будет хранить число и очищаться
-	vector<float> vec(1); //изначально переводим в вектор (обяз.инициализация)
+	string data; //Р±СѓРґРµС‚ С…СЂР°РЅРёС‚СЊ С‡РёСЃР»Рѕ Рё РѕС‡РёС‰Р°С‚СЊСЃСЏ
+	vector<float> vec(1); //РёР·РЅР°С‡Р°Р»СЊРЅРѕ РїРµСЂРµРІРѕРґРёРј РІ РІРµРєС‚РѕСЂ (РѕР±СЏР·.РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ)
 	int length = key.length() + 1;
 
-	for (int j = 0; j < length; j++) //переделаем все точки в запятые ради stof
+	for (int j = 0; j < length; j++) //РїРµСЂРµРґРµР»Р°РµРј РІСЃРµ С‚РѕС‡РєРё РІ Р·Р°РїСЏС‚С‹Рµ СЂР°РґРё stof
 		if (key[j] == '.') key[j] = ',';
 
 	for (int j = 0, n = 0; j < length; j++)
@@ -107,14 +107,14 @@ void interpretation::toFloatMassv(float* massv, int length_)
 			continue;
 		}
 
-		vec[n] = stof(data); //переводим число в float
-		data.clear(); //очищаем
-		n++; //кол во чисел (или номер текущего числа)
-		vec.push_back(0); //новое число
+		vec[n] = stof(data); //РїРµСЂРµРІРѕРґРёРј С‡РёСЃР»Рѕ РІ float
+		data.clear(); //РѕС‡РёС‰Р°РµРј
+		n++; //РєРѕР» РІРѕ С‡РёСЃРµР» (РёР»Рё РЅРѕРјРµСЂ С‚РµРєСѓС‰РµРіРѕ С‡РёСЃР»Р°)
+		vec.push_back(0); //РЅРѕРІРѕРµ С‡РёСЃР»Рѕ
 	}
 	
-	//переведем в массив
-	for (int j = 0; j < vec.size() && j < length_ / sizeof(float); j++) { //length учитывает макс.кол во индексов массива
+	//РїРµСЂРµРІРµРґРµРј РІ РјР°СЃСЃРёРІ
+	for (int j = 0; j < vec.size() && j < length_ / sizeof(float); j++) { //length СѓС‡РёС‚С‹РІР°РµС‚ РјР°РєСЃ.РєРѕР» РІРѕ РёРЅРґРµРєСЃРѕРІ РјР°СЃСЃРёРІР°
 		*massv = vec[j];
 		massv++;
 	}
@@ -139,7 +139,7 @@ float interpretation::toFloat()
 {
 	string nool;
 
-	for (int j = 0; j < key.length(); j++) //переделаем все точки в запятые ради stof
+	for (int j = 0; j < key.length(); j++) //РїРµСЂРµРґРµР»Р°РµРј РІСЃРµ С‚РѕС‡РєРё РІ Р·Р°РїСЏС‚С‹Рµ СЂР°РґРё stof
 		if (key[j] == '.') key[j] = ',';
 
 	for (int j = 0; j < key.length(); j++)
