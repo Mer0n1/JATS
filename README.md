@@ -6,4 +6,4 @@ JATS - Json and translate string
 
 Example
 -------------------------------
-![Example](https://github.com/Mer0n1/JATS/tree/main/Example.png)
+![Example](Example.png)
