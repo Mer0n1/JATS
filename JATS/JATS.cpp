@@ -19,28 +19,23 @@ interpretation JsonDocument::value(string key)
 	int len = key.length();
 	string itog;
 
-	for (int j = 1; j < msg.length(); j++) 
-		if (msg[j] == key[len - 1] && msg[j - 1] == key[len - 2] && sort(key, msg, len, j))
+	if (key == "" || key == " ") return interpretation("");
+
+	for (int j = 0; j < msg.length(); j++) {
+		if (msg[j] == '{') continue;
+		for (int l = 0; l < len; l++)
 		{
-			for (int c = 0; c < msg.length(); c++)
-				if (msg[j + 4 + c] == '"') {
-					for (int i = j + 4; i < c + j + 4; i++) 
-						itog += msg[i];
-					break;
-				}
-			break;
+			if (msg[j + l] != key[l] || msg[j + len] != '"' || msg[j - 1] != '"') break;
+			if (l == len - 1) {
+				for (int c = j + len + 3; c < msg.length(); c++)
+					if (msg[c] == '"') break; else
+						itog += msg[c];
+			}
 		}
+	}
 
 	interpretation inc(itog);
 	return inc;
-}
-
-
-bool JsonDocument::sort(string key, string msg, int alk, int j)
-{ 
-	if (key.length() == 2) return true; //если аргумент равен 2, то пропускаем
-	if (key.length() > 2 && msg[j - 2] == key[alk - 3]) return true; //если нет, то сортируем еще
-	return false;                                                        //для тщательного поиска
 }
 
 
@@ -56,6 +51,10 @@ interpretation::interpretation(string key_)
 interpretation::~interpretation()
 {
 
+}
+interpretation::operator string()
+{
+	return key;
 }
 
 void interpretation::toIntMassv(int* massv, int length_)

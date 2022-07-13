@@ -1,6 +1,8 @@
 Debug
+x64/
 JATS/Debug
 JATS/Release
+JATS/x64
 JATS.vcxproj
 JATS.vcxproj.user
 JATS.vcxproj.filters
@@ -9,3 +11,4 @@ JATS.vcxproj.filters
 *.log
 *.idb
 *.tlog
+JATS.sln

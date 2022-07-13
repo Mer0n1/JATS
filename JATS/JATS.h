@@ -13,6 +13,7 @@ public:
 	interpretation();
 	interpretation(string key_);
 	~interpretation();
+	operator string();
 
 	void toIntMassv(int* massv, int length); //massv - первый элемент массива
 	void toFloatMassv(float* massv, int length);
@@ -31,7 +32,4 @@ public:
 	JsonDocument(string d);
 
 	interpretation value(string key);
-private:
-	bool sort(string key, string msg, int alk, int j); //сортировка 
-
 };

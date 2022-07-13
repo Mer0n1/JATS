@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 	//Пример запроса Json
 	string result = "{\"Type\":\"White\",\"Value\":\"32\",\"Code16x\":\"23 545 123.45 34 11 34.4 157663\"}";
 	cout << "Пример запроса: \n" << result << "\n\n";
-
+	
 	doc = result; //обязательная инициализация
 	//Вывод результатов
 	cout << "Type: "    << doc.value("Type").toString() << endl; 
